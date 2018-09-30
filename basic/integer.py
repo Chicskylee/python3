@@ -17,7 +17,7 @@
 # 绝对值运算 abs(integer)
 # 商和余数运算 divmod(integer1, integer2)
 # 10转16进制 hex(integer)
-# 10转8进制  oct(integer)
+# 10转8进制 oct(integer)
 # 10转2进制 bin(integer)
 
 
