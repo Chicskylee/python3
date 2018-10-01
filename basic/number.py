@@ -2,23 +2,48 @@
 
 # 注意：与Python2不同，在Python3中，不存在long int，
 # 在Python3中只有 int 这一种整数类型。
+# 长整形：long()，此类型在Python3中被弃用！！
+
+# 数的类型
+# 整数类型：int()
+# 浮点数类型：float()
+# 复数类型：complex()
+# 布尔类型：bool()   ——特殊的整数
 
 
-# 整数类型的数学运算
+# 数类型的数学运算
 # 四则运算：加(+)、减(-)、乘(*)、除(/)；
-# 整除(//)、取余(%)
+# 整除(//)、
+# 取余(%)，不能应用于复数
 # 方幂运算(**) 或 pow(integer1, integer2)
-# 按位运算：和(&)、或(|)、异或(^)、左移(<<)、右移(>>)、取反(~)
+# 按位运算(仅整数)：和(&)、或(|)、异或(^)、左移(<<)、右移(>>)、取反(~)
 
 
 # Python自带的函数：
 # 幂运算 pow(integer1, integer2)
 # 绝对值运算 abs(integer)
 # 商和余数运算 divmod(integer1, integer2)
+# 四舍五入 round()
+# 求和运算 sum()
+
+
+# 进制转换(仅整数)：
 # 10转16进制 hex(integer)
 # 10转8进制 oct(integer)
 # 10转2进制 bin(integer)
 
+
+# 浮点数转换
+
+# Python自带的其它函数
+# 格式化函数：format()
+
+
+# 其它相关内容：
+# 注意：这些内容将留待模块部分介绍
+# 模块：math、decimal、fractions、statistics、random、difflib
+# 注意：这些内容将留待异常捕获部分介绍
+# 异常类型：ArithmeticError(及其子类FloatingPointError、OverflowError、ZeroDivisionError)
 
 
 
@@ -41,7 +66,6 @@ def show_operators_for_number():
     print(2 ** 3)     # 8
     print(5 ** 0.5)   # 2.23606797749979
     print(5 ** (1/2)) # 2.23606797749979
-    pass
 
 
 # 进制转换
@@ -90,18 +114,15 @@ def show_operators_only_for_integer():
     # 10111
     # 10010
     # 按位左移：
-    print(5 << 8)
+    print(5 << 8) # 1280，其二进制：10100000000
     # 00101
     # 10111
     # 12345678901234567890123456789--正位数标尺
     # 98765432109876543210987654321--负位数标尺
     # --------------------------
     # 00000000101----补齐11位的5的二进制形式
-    # 10100000000----将每个1向左移8位
-    print(int('10100000000', 2))
-
-
-
+    # 10100000000----将每个1向左移8位，得到1280的二进制形式
+    print(int('10100000000', 2)) # 1280
 
 
 if __name__ == '__main__':
@@ -111,7 +132,6 @@ if __name__ == '__main__':
     hexadecimal_conversion()
     print('按位操作：')
     show_operators_only_for_integer()
-
 
 
 
