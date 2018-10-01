@@ -43,7 +43,7 @@
 # 注意：这些内容将留待模块部分介绍
 # 模块：math、decimal、fractions、statistics、random、difflib
 # 注意：这些内容将留待异常捕获部分介绍
-# 异常类型：ArithmeticError(及其子类FloatingPointError、OverflowError、ZeroDivisionError)
+# 异常类型：MemoryError、ArithmeticError(及其子类FloatingPointError、OverflowError、ZeroDivisionError)
 
 
 
