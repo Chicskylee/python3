@@ -154,17 +154,15 @@ def look_id():
     print(id(int_a))
     print(id(int_b))
 
+
 # is的特性：对于-5~256之间的值用is判断不同变量值，结果为True
-def is_feature00():
+def is_feature():
     for i in range(-10, 260, 1):
         print(i)
         a = i
         b = i + 1 - 1
         print('a is b:', a is b)
         print('id(a):{}, id(b):{}'.format(id(a), id(b)))
-
-
-
 
 
 # 自带的数学函数
@@ -192,6 +190,9 @@ if __name__ == '__main__':
     hexadecimal_conversion()
     print('按位操作：')
     show_operators_only_for_integer()
+    look_id()
+    is_feature()
+    int_func()
 
 
 
