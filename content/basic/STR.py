@@ -1,69 +1,125 @@
-#coding=utf-8
-# 字符串是不可更改的(immutable)对象
+# coding=utf-8
+# ==========================================
+# 字符串是不可更改的(immutable)对象；
+# 字符串是一种序列，其每个元素是单个字符，每个元素有对应的索引。
+# ------------------------------------------
+# 字符串的的索引对应如下：
+# +---+---+---+---+---+---+
+# | P | y | t | h | o | n |
+# +---+---+---+---+---+---+
+# | 0 | 1 | 2 | 3 | 4 | 5 | 6
+# |-6 |-5 |-4 |-3 |-2 |-1 |
+# ------------------------------------------
+# 可用单引号、双引号、三引号包围字符的形式定义字符串
+# '字符串'
+# "字符串"
+# '''字符串'''
+# """字符串"""
+# 用引号定义字符串时，相邻的字符串会自动合并一个字符串
+# '字符串一' '字符串二' "字符串三"
+# 也可以用其它类型数据转换为字符串
+# str(12345)
+# ==========================================
+# 字符串打印
 
-str1_En = "this is a strings using test."
-str2_En = "The TEST using of English."
-str1_Ch = "这是一个字符串，用于测试。"
-str2_Ch = "这是另一个字符串，用于测试中文。"
+def print_str():
+    print('字符串打印：')
+    print('this is a strings using test.')
+    # 相邻字符串会自动连接
+    print('字符串一' '字符串二' "字符串三")
+    print('''字符串的多行打印，示例一
+这是第二行
+这是最后一行''')
+    # 在加圆括号后会忽略相邻字符串之间的换行，且圆括号可在打印时省略
+    # 利用这个特性可以用于连接长字符串，且保持相同的缩进
+    print('字符串的多行打印，示例二\n'
+          '这是第二行\n'
+          '这是最后一行')
+
+if __name__ == '__main__':
+    #print_str()
+    pass
+
+# ------------------------------------------
+# 打印 Unicode 字符串
+
+def print_unicode_str():
+    # 打印：欢迎alpha,beta,gamma
+    print('欢迎 α0 β γ')
+    # 也可以直接使用 Unicode 编码
+    print('\u6B22\u8FCE \u03b1 \u03b2 \u03b3')
+    # 依次打印每个字
+    for i in '北京上海广州':
+        print(i)
+
+if __name__ == '__main__':
+    #print_unicode_str()
+    pass
+
+# ------------------------------------------
+# 字符串的索引和切片
+# 注意：Python 对于不存在的索引操作引发IndexError
+# 注意：Python 对于不存在的切片操作则可以正确处理
+# 注意：索引操作和切片操作产生新的字符串
+
 
 # +---+---+---+---+---+---+
 # | P | y | t | h | o | n |
 # +---+---+---+---+---+---+
 # | 0 | 1 | 2 | 3 | 4 | 5 | 6
 # |-6 |-5 |-4 |-3 |-2 |-1 |
-#===================================================
-print( "\n\n" + "="*50 )
-#字符串打印。
-print( "字符串打印：" )
-print( str1_En )
-print( str2_En )
-print( str1_Ch )
-print( str2_Ch )
-print( "repr(1/3)：" + repr(1/3) )
-print( "str(1/3)：" + str(1/3) )
 
-# ----------------------------------------
-# 对于相邻字符串解释器会自动连接，而且在加圆括号后会忽略相邻字符串之间的换行：
-a = 'abc' 'defg'
-print(a)
-
-b = ('abc'
-'defg')
-print(b)
-
-# 利用这个特性可以用于连接长字符串：
-long_text = ('Put several strings within parentheses '
-	            'to have them joined together.')
-print(long_text)
-
-# ----------------------------------------
-
-#打印：欢迎alpha,beta,gamma。
-print("\u6B22\u8FCE \u03b10 \u03b2 \u03b3")
-
-#依次打印每个字。
-for i in '北京上海广州':
-  print(str(i))
+# 索引
+def str_index():
+    s = 'Python'
+    print(s[5])
+    print(s[-5])
 
 
+# 切片
+def str_slice():
+    print('0123456789')
+    s = 'Python'
+    print(s[::])
+    print(s[:])
+    # 字符串的切片得到从左索引（包含）至右索引（不包含）的字符串
+    print(s[0:3])
+    print(s[0:-3])  # 0-负3个字符。
+    print(s[:-3])  # 与[0:-3]等价。
+    print(s[3:])  # 3至结尾的字符。
+    print(s[:3])  # 头至3的字符串。共3个字符，不包括第3个字符。。
+    print(s[-3:])  # 负3至结尾的字符。共3个字符。
+    # 带步长的切片
+    print(s[::2])  # 步长为2，常规全切片。
+    print(s[::-1])  # 逆序切片：字符串反转。
+    print(s[:-4:-1])  # 逆序截取。
 
-#===================================================
-print( "\n\n" + "="*50 )
-print( "字符串生成：" )
-#字符串生成。
-f = lambda i:chr(i)
-number_tuple = [ str(i) for i in range(0,10) ]
-lower_tuple = [f(i) for i in range(97,123)]
-capital_tuple = [f(i) for i in range(65,91)]
-str_tuple = number_tuple + lower_tuple + capital_tuple
+if __name__ == '__main__':
+    str_index()
+    str_slice()
+    pass
 
-print( str_tuple )
-str_tuple = "".join( str_tuple )
-print( str_tuple )
+__import__('sys').exit(0)
+# ------------------------------------------
+# 字符串拼接
+
+def join_str():
+    # 自动生成a-zA-Z0-9的字符
+    numbers = [str(i) for i in range(0,10)]
+    lowers = [chr(i) for i in range(97,123)]
+    capitals = [chr(i) for i in range(65,91)]
+    print(numbers)
+    print(lowers)
+    print(capitals)
+    # 拼接所有字符
+    all_alphabets = ''.join(numbers + lowers + capitals)
+    print(all_alphabets)
 
 
-#===================================================
-print( "\n\n" + "="*50 )
+if __name__ == '__main__':
+    #join_str()
+    pass
+# ------------------------------------------
 print( "返回ASCII码值：" )
 #返回ASCII码值。
 ch="a"
@@ -79,6 +135,7 @@ for i in range(33,128):
     this=chr(i)+":"+k
     table=table+"  "+this
 print(table)
+
 
 #===================================================
 print( "\n\n" + "="*50 )
@@ -103,34 +160,6 @@ print( len( str1_En ))
 print( len( str2_En ) )
 print( len( str1_Ch ) )
 print( len( str2_Ch ) )
-
-#===================================================
-print( "\n\n" + "="*50 )
-#字符串提取。
-print("字符串提取：")
-#索引。
-# 注重：解释器对于不存在的索引操作引发IndexError，但对于不存在的切片则可以正确处理
-print( "索引：" )
-print( str1_En[5] )#单个。
-print( str1_En[-5] )#单个。
-print( str1_En[ len(str1_En)-5 ] )
-#切片。
-str3_En = "This good."
-print( "切片：" )
-print( "用于对照的序号：" + "0123456789")
-print( "str1_En[::]:\t" + str3_En[::] )#全部。
-print( "str1_En[:]:\t" + str3_En[:] )#全部。
-print( "str1_En[0:3]:\t" + str3_En[0:3] )#0-3个字符。共3个字符，不包括第3个字符。
-print( "str1_En[0:-3]:\t" + str3_En[0:-3] )#0-负3个字符。
-print( "str1_En[:-3]:\t" + str3_En[:-3] )#与[0:-3]等价。
-print( "str1_En[3:]:\t" + str3_En[3:] )#3至结尾的字符。
-print( "str1_En[:3]:\t" + str3_En[:3] )#头至3的字符串。共3个字符，不包括第3个字符。。
-print( "str1_En[-3:]:\t" + str3_En[-3:] )#负3至结尾的字符。共3个字符。
-#带步长的切片。
-print( "带步长的切片：" )
-print( "str1_En[::2]:\t" + str3_En[::2] )#步长为2，常规全切片。
-print( "str1_En[::-1]:\t" + str3_En[::-1] )#逆序切片：字符串反转。
-print( "str1_En[:-4:-1]:" + str3_En[:-4:-1] )#逆序截取。
 
 #===================================================
 print( "\n\n" + "="*50 )
@@ -506,12 +535,4 @@ print( "\n\n" + "="*50 )
 #errors默认值为"strict"，意思是UnicodeError。
 
 #字符串解码：S.decode([encoding,[errors]])
-
-
-
-
-
-
-
-
 
